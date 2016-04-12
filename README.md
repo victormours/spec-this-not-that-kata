@@ -3,7 +3,7 @@ Spec This, Not That!
 
 The goal of this kata is to write an Rspec version of the [TTNT](https://github.com/Genki-S/ttnt) gem.
 
-TNTT, which is short for Test This Not That, makes it possible to run the tests only for the changes made by the latest commit.
+TTNT, which is short for Test This Not That, makes it possible to run the tests only for the changes made by the latest commit.
 
 This is a two step process : first a spec to code mapping is generated, and then the git diff is used to know which
 
