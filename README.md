@@ -1,7 +1,7 @@
 Spec This, Not That!
 ===
 
-The goal of this kata is to write an Rspec version of the [TNTT](https://github.com/Genki-S/ttnt) gem.
+The goal of this kata is to write an Rspec version of the [TTNT](https://github.com/Genki-S/ttnt) gem.
 
 TNTT, which is short for Test This Not That, makes it possible to run the tests only for the changes made by the latest commit.
 
