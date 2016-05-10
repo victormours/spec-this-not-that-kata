@@ -1,3 +1,5 @@
+require 'coverage.so'
+
 class SpecThisNotThat
   class << self
 
@@ -6,10 +8,13 @@ class SpecThisNotThat
       true
       # RSpec::Core::Runner.run([spec_filename])
       options = RSpec::Core::ConfigurationOptions.new([spec_filename])
+      config = RSpec::Core::Configuration.new
 
       require_relative '../spec/sample-project/spec/spec_helper.rb'
-      runner = RSpec::Core::Runner.new(options, RSpec.configuration, RSpec::Core::World.new)
-      runner.run(STDERR, STDOUT)
+      runner = RSpec::Core::Runner.new(options, config, RSpec::Core::World.new)
+      Coverage.start
+      runner.run(File.open("/dev/null", "w"), File.open("/dev/null", "w"))
+      p Coverage.result
     end
 
     # Returns the list of specs that cover the given line of code
