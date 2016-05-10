@@ -6,5 +6,9 @@ RSpec.describe SpecThisNotThat do
     it "returns true for matching files" do
       expect(described_class.covers?("spec/sample-project/spec/article_spec.rb", "spec/sample-project/app/article.rb")).to be_truthy
     end
+
+    it "returns true for matching files" do
+      expect(described_class.covers?("spec/sample-project/spec/article_spec.rb", "spec/sample-project/app/blog.rb")).to be_falsy
+    end
   end
 end

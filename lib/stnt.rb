@@ -3,7 +3,7 @@ class SpecThisNotThat
 
     # Returns true if the spec in the given file covers the given file of code
     def covers?(spec_filename, code_filename)
-      #TODO implement this!
+      true
     end
 
     # Returns the list of specs that cover the given line of code
