@@ -7,6 +7,7 @@ class SpecThisNotThat
       # RSpec::Core::Runner.run([spec_filename])
       options = RSpec::Core::ConfigurationOptions.new([spec_filename])
 
+      require_relative '../spec/sample-project/spec/spec_helper.rb'
       runner = RSpec::Core::Runner.new(options, RSpec.configuration, RSpec::Core::World.new)
       runner.run(STDERR, STDOUT)
     end

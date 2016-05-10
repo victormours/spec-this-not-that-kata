@@ -31,4 +31,15 @@ RSpec.describe Article do
     end
 
   end
+
+  describe ".delete_all" do
+    context "after creating an article" do
+      before { described_class.create("Hi", "Hello World") }
+
+      it "deletes all the articles" do
+        described_class.delete_all
+        expect(described_class.list).to eq []
+      end
+    end
+  end
 end
