@@ -1,19 +1,23 @@
 class Article
 
+  @articles = {}
+
   class << self
 
     def create(title, content)
-      File.write("data/#{title}", content)
+      @articles[title] = content
     end
 
     def find(title)
-      File.read("data/#{title}")
+      @articles[title]
     end
 
     def list
-      Dir["data/*"].map do |filetitle|
-        filetitle.gsub("data/", '')
-      end
+      @articles.keys
+    end
+
+    def delete_all
+      @articles = {}
     end
 
   end

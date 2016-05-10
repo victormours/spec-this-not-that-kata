@@ -25,10 +25,13 @@ RSpec.configure do |config|
 
   # The equivalent of a DatabaseCleaner
   config.before(:each) do
-    `rm data/* 2> /dev/null`
+    data_path = File.expand_path("../../data", __FILE__)
+    `rm #{data_path}/* 2> /dev/null`
   end
 
   config.after(:each) do
-    `rm data/* 2> /dev/null`
+    data_path = File.expand_path("../data", __FILE__)
+    data_path = File.expand_path("../../data", __FILE__)
+    `rm #{data_path}/* 2> /dev/null`
   end
 end
