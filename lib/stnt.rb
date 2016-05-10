@@ -10,11 +10,13 @@ class SpecThisNotThat
       options = RSpec::Core::ConfigurationOptions.new([spec_filename])
       config = RSpec::Core::Configuration.new
 
+      Coverage.start
       require_relative '../spec/sample-project/spec/spec_helper.rb'
       runner = RSpec::Core::Runner.new(options, config, RSpec::Core::World.new)
-      Coverage.start
       runner.run(File.open("/dev/null", "w"), File.open("/dev/null", "w"))
-      p Coverage.result
+      full_path = File.expand_path(code_filename)
+      result = Coverage.result[full_path]
+      !([[], nil].include?(result))
     end
 
     # Returns the list of specs that cover the given line of code
